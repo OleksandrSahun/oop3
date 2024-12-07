@@ -1,10 +1,14 @@
 package com.di;
 
-public class Car {
-    private String model;
-    private String licenseNumber;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
-    public Car(String model, String licenseNumber) {
+public class Car {
+    private final String model;
+    private final String licenseNumber;
+
+    @Inject
+    public Car(@Named("CarModel") String model, @Named("LicenseNumber") String licenseNumber) {
         this.model = model;
         this.licenseNumber = licenseNumber;
     }
